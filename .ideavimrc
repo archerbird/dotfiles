@@ -1,0 +1,228 @@
+" ---Vim Options---
+set hlsearch
+set incsearch
+set ignorecase smartcase
+set scrolloff=10
+set history=1000
+set clipboard*=unnamed
+set relativenumber
+set visualbell
+set idearefactormode=keep
+set showcmd
+set showmode
+set ideajoin
+
+" register leader
+let mapleader = " "
+
+
+" ---Vim Modifications---
+" Center screen when jumping to next match
+nnoremap n nzz
+nnoremap N Nzz
+vnoremap n nzz
+vnoremap N Nzz
+
+" Center screen when moving up and down
+
+nnoremap <C-o> <C-d>zz
+vnoremap <C-u> <C-u>zz
+vnoremap <C-o> <C-d>zz
+
+" remap for redo
+map U <C-R>
+
+" After block yank and paste, move cursor to the end of operated text and don't override register
+vnoremap p "_dP`]
+nnoremap p p`]
+
+" Yank to end of line
+vnoremap y ygv<Esc>$
+nnoremap Y y$
+
+" Make X-delete operators remove without placing text in the default registry
+nnoremap x "_x
+nmap X "_d
+vmap X "_d
+vmap x "_d
+
+" Special delete operator for deleting to black hole register
+map <leader>d \"_d
+
+" don't yank to default register when changing something
+nnoremap c "xc
+xnoremap c "xc
+
+" Change line, better use S for this.
+nmap cc 1S
+
+" Remove search highlights
+nnoremap <esc> :nohlsearch<cr>
+
+"modified motions
+nnoremap <S-j> }
+nnoremap <S-k> {
+nnoremap <S-h> ^
+nnoremap <S-l> $
+vnoremap <S-j> }
+vnoremap <S-k> {
+vnoremap <S-h> ^
+vnoremap <S-l> $
+
+" ---Custom Keybindings---
+" zen mode
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
+vmap <leader>z <Action>(ToggleDistractionFreeMode)
+
+" remap line join
+map <leader>j :join<CR>
+
+" delete word shortcut
+map <DEL> daw
+
+" Bump Lines up/down
+nnoremap <m-k> ddkP==
+nnoremap <m-j> ddp==
+inoremap <m-k> <esc>ddkP==i
+inoremap <m-j> <esc>ddp==i
+vnoremap <m-j> :m '>+1<CR>gv
+vnoremap <m-k> :m '<-2<CR>gv
+
+"code interactions
+map <leader>cr <Action>(ReformatCode)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>cc <Action>(CommentByLineComment)
+map <leader>cC <Action>(CommentByBlockComment)
+map <leader>cp <Action>(QuickPreview)
+map <leader>ci <Action>(ShowHoverInfo)
+map <leader>cm <Action>(ToggleBookmark)
+map <leader>cb <Action>(ToggleLineBreakpoint)
+"folding
+map <leader>cf <action>(ExpandCollapseToggleAction)
+map <leader>cz <action>(RiderCollapseToDefinitions)
+map <leader>cZ <Action>(ExpandAllRegions)
+
+"view navigation
+nmap <S-C-1> <Action>(Back)
+nmap <C-S-/> <Action>(Forward)
+nmap <C-S-t> <Action>(PreviousTab)
+nmap <C-t> <Action>(NextTab)
+vmap <C-S-t> <Action>(PreviousTab) vmap <C-t> <Action>(NextTab)
+inoremap <C-S-t> <esc> :action PreviousTab<CR> i
+inoremap <C-t> <esc> :action NextTab<CR> i
+"pane/window navigation
+map <leader>w\ <Action>(MoveTabRight)
+map <leader>w_ <Action>(MoveTabDown)
+map <leader>w= <Action>(UnsplitAll)
+map <leader>wx <Action>(CloseContent)
+map <leader>wX <Action>(CloseAllEditors)
+map <leader>wo <Action>(CloseAllEditorsButActive)
+
+let g:WhichKeyDesc_window = "<leader>w +window operations"
+let g:WhichKeyDesc_window_splitRight = "<leader>w\ Split tab to the vertically"
+let g:WhichKeyDesc_window_splitLeft = "<leader>w_ Split tab to the horizontally"
+let g:WhichKeyDesc_window_unsplitAll = "<leader>w= Unsplit all tabs"
+let g:WhichKeyDesc_window_closeTab = "<leader>wx Close current tab"
+let g:WhichKeyDesc_window_closeAllTabs = "<leader>wX Close all tabs"
+let g:WhichKeyDesc_window_closeAllOtherTabs = "<leader>wo Close all other tabs"
+
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+map <C-h> <c-w>h
+map <C-l> <c-w>l
+map <C-j> <c-w>j
+map <C-k> <c-w>k
+inoremap <C-h> <esc><c-w>h
+inoremap <C-j> <esc><c-w>j
+inoremap <C-k> <esc><c-w>k
+inoremap <C-l> <esc><c-w>l
+"code navigation
+nmap gE <Action>(GotoPreviousError)
+nmap ge <Action>(GotoNextError)
+nmap <C-e> <Action>(GotoNextError)
+nmap gd <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gt <Action>(GotoTypeDeclaration)
+nmap gM <Action>(MethodUp)
+nmap gm <Action>(MethodDown)
+
+sethandler <C-m> a:vim
+sethandler <C-M> a:vim
+nmap <C-m> <Action>(GotoNextBookmark)
+nmap <C-M> <Action>(GotoPreviousBookmark)
+vmap <C-m> <Action>(GotoNextBookmark)
+vmap <C-M> <Action>(GotoPreviousBookmark)
+inoremap <C-m> <esc>:action GotoNextBookmark<CR> <esc>
+inoremap <C-M> <esc>:action GotoPreviousBookmark<CR> <esc>
+
+"Menus
+nmap mm <Action>(ShowBookmarks)
+nmap ms <Action>(FileStructurePopup)
+nmap mb <Action>(ViewBreakpoints)
+nmap mr <Action>(RecentLocations)
+
+
+"Terminal
+map <leader>tt <Action>(ActivateTerminalToolWindow)
+map <leader>tf <Action>(Terminal.OpenInTerminal)
+map <leader>tx <Action>(ActivateTerminalToolWindow) <Action>(HideActiveWindow)
+
+"Git
+map <leader>tg <Action>(ActivateVersionControlToolWindow)
+map <leader>eg <Action>(ActivateCommitToolWindow)
+
+" ---Surround---
+Plug 'tpope/vim-surround'
+
+map <leader>ss ysiw
+map <leader>sS ysiW
+map <leader>sd ds
+map <leader>sr cs
+vmap <leader>ss <S-s>
+
+let g:WhichKeyDesc_surround = "<leader>s +surround operations"
+let g:WhichKeyDesc_surround_word = "<leader>ss Surround Word with {character}"
+let g:WhichKeyDesc_surround_Word = "<leader>sS Surround Word(within whitespaces) with {character}"
+let g:WhichKeyDesc_surround_delete = "<leader>sd Delete the surrounding {character}"
+let g:WhichKeyDesc_surround_replace = "<leader>sr Replace the surrounding {character} with {character}"
+let g:WhichKeyDesc_surround_selected_word = "<leader>ss Surround Selection with {character}"
+
+" ---NerdTree---
+Plug 'preservim/nerdtree' 
+"Explorer Navigation
+map <leader>ee :NERDTree<CR>
+map <leader>ex :NERDTree<CR> :NERDTreeClose<CR>
+map <leader>ef :NERDTreeFind<CR>
+map <leader>ei <Action>(ShowNavBar)
+
+
+Plug 'vim-scripts/argtextobj.vim'
+
+" ---highlight yank---"
+set highlightedyank
+let g:highlightedyank_highlight_duration = "500"
+
+
+" ---quick-scope---
+set quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+
+" ---which-key---
+set which-key
+set notimeout
+let g:WhichKey_DefaultDelay = 1000
+let g:WhichKey_ShowVimActions = "true"
+
+let g:WhichKeyDesc_explore = "<leader>e +Explore"
+let g:WhichKeyDesc_explore_open = "<leader>ee Open Explore pane"
+let g:WhichKeyDesc_explore_to_file = "<leader>ef Jump to cwf in Explore"
+let g:WhichKeyDesc_explore_close = "<leader>ex Close Explorer/Commit pane."
+
+let g:WhichKeyDesc_term = "<leader>t +Terminal"
+let g:WhichKeyDesc_term_open = "<leader>tt Open Terminal"
+let g:WhichKeyDesc_term_open_to_file = "<leader>tf Open Terminal in cwd"
+let g:WhichKeyDesc_term_close = "<leader>tx Close Terminal/Git pane"
+
+let g:WhichKeyDesc_git_open = "<leader>tg Open Git pane"
+let g:WhichKeyDesc_git_commit_open = "<leader>eg Open Git Commit pane"

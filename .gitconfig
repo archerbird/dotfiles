@@ -1,0 +1,16 @@
+[user]
+	name = Kyle McDowell
+	email = 10101986+archerbird@users.noreply.github.com
+[core]
+	autocrlf = input
+	ignorecase = false
+[credential]
+	helper = osxkeychain
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[init]
+	defaultBranch = main
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[commit]
+	gpgsign = true
