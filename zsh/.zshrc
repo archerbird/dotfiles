@@ -119,7 +119,7 @@ fi
 
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 autoload -U compinit; compinit
-source ~/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh
+source ~/.config/zsh/fzf-tab/fzf-tab.plugin.zsh
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
