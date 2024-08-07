@@ -70,6 +70,11 @@ vnoremap <S-h> ^
 vnoremap <S-l> $
 
 " ---Custom Keybindings---
+" find all occurrences of word under cursor
+nnoremap <leader>f yiw/\V<C-R>"<CR>
+" find all occurrences of visual selection
+vnoremap <leader>f y/\V<C-R>"<CR>
+
 " zen mode
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
 vmap <leader>z <Action>(ToggleDistractionFreeMode)
@@ -148,6 +153,7 @@ nmap gm <Action>(MethodDown)
 
 sethandler <C-m> a:vim
 sethandler <C-M> a:vim
+sethandler <esc> a:vim
 nmap <C-m> <Action>(GotoNextBookmark)
 nmap <C-M> <Action>(GotoPreviousBookmark)
 vmap <C-m> <Action>(GotoNextBookmark)

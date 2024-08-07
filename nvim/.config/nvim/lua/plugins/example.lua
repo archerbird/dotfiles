@@ -121,7 +121,6 @@ return {
     opts = {
       ensure_installed = {
         "bash",
-        "c_sharp",
         "html",
         "javascript",
         "json",
