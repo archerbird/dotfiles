@@ -27,12 +27,12 @@ bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
 # use eza for ls plus some ls shorthand
-alias ls="eza --color=always --long --grid --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias ls="EZA_GRID_ROWS=10 eza --color=always --grid --long --no-filesize --icons=always --no-time --no-user --no-permissions --group-directories-first"
 alias la="ls -a"
-alias ll="eza --long --no-user --icons=always -a"
+alias ll="EZA_GRID_ROWS=10 eza --grid --long --no-user --icons=always -a --group-directories-first"
 alias lf="la --only-files"
 alias ld="la --only-dirs"
-alias lt="eza --tree --level=2 --icons --git"
+alias lt="eza --tree --level=2 --icons --git --group-directories-first"
 
 # use zoxide for cd
 alias cd="z"
@@ -64,6 +64,7 @@ alias cat="bat"
 export BAT_THEME="Catppuccin Mocha"
 
 #git
+alias lgit="lazygit"
 alias gc="git commit -m"
 alias gca="git commit -a -m"
 alias gp="git push origin HEAD"
