@@ -150,6 +150,7 @@ nmap gi <Action>(GotoImplementation)
 nmap gt <Action>(GotoTypeDeclaration)
 nmap gM <Action>(MethodUp)
 nmap gm <Action>(MethodDown)
+nmap gh <Action>(ShowHoverInfo)
 
 sethandler <C-m> a:vim
 sethandler <C-M> a:vim
