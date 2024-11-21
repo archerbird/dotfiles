@@ -83,7 +83,7 @@ vmap <leader>z <Action>(ToggleDistractionFreeMode)
 map <leader>j :join<CR>
 
 " delete word shortcut
-map <DEL> daw
+nmap <DEL> daw
 
 " Bump Lines up/down
 nnoremap <m-k> ddkP==
@@ -106,6 +106,8 @@ map <leader>cb <Action>(ToggleLineBreakpoint)
 map <leader>cf <action>(ExpandCollapseToggleAction)
 map <leader>cz <action>(RiderCollapseToDefinitions)
 map <leader>cZ <Action>(ExpandAllRegions)
+map <leader>co <Action>(copilot.enableCopilot)
+map <leader>ch <Action>(OpenInlineChatAction)
 
 "view navigation
 nmap <S-C-1> <Action>(Back)
@@ -151,6 +153,7 @@ nmap gt <Action>(GotoTypeDeclaration)
 nmap gM <Action>(MethodUp)
 nmap gm <Action>(MethodDown)
 nmap gh <Action>(ShowHoverInfo)
+map gb <Action>(VSO.Open.In.Browser)
 
 sethandler <C-m> a:vim
 sethandler <C-M> a:vim
