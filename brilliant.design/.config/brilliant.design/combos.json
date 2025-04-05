@@ -1,0 +1,75 @@
+[
+  {
+    "commands" : [
+      "combo_style:_default_172C4C1D-A386-4A9B-AFBD-85FBDFE242C5",
+      "change_tool_line"
+    ],
+    "id" : "straightline_tool_26791744-FE74-445B-BD4A-D8D56B6BDF04",
+    "name" : "Straightline Tool",
+    "iconName" : "angle"
+  },
+  {
+    "commands" : [
+      "combo_style:_default_172C4C1D-A386-4A9B-AFBD-85FBDFE242C5",
+      "change_tool_arrow"
+    ],
+    "id" : "arrow_tool_AA8B934C-4086-4A51-A663-DC98788FDD26",
+    "name" : "Arrow Tool",
+    "iconName" : "arrow.up.forward"
+  },
+  {
+    "commands" : [
+      "combo_style:_default_172C4C1D-A386-4A9B-AFBD-85FBDFE242C5",
+      "change_tool_rectangle"
+    ],
+    "id" : "box_tool_8F636B3A-64B6-455A-A998-01BBF5815ABE",
+    "name" : "Box Tool",
+    "iconName" : "rectangle"
+  },
+  {
+    "commands" : [
+      "combo_style:_default_172C4C1D-A386-4A9B-AFBD-85FBDFE242C5",
+      "change_tool_circle"
+    ],
+    "id" : "circle_tool_011274CA-CD38-430F-9C7C-522C125AF6BA",
+    "name" : "Circle Tool",
+    "iconName" : "circle"
+  },
+  {
+    "commands" : [
+      "set_transparency_level_0",
+      "set_size_level_1"
+    ],
+    "id" : "style:_default_172C4C1D-A386-4A9B-AFBD-85FBDFE242C5",
+    "name" : "Style: Default",
+    "iconName" : "applepencil.tip"
+  },
+  {
+    "commands" : [
+      "combo_style:_default_172C4C1D-A386-4A9B-AFBD-85FBDFE242C5",
+      "change_tool_pen"
+    ],
+    "id" : "change_tool_to_pen_E584A35C-4E29-453E-B6BD-FCEA233091E6",
+    "name" : "Freehand Tool",
+    "iconName" : "pencil"
+  },
+  {
+    "commands" : [
+      "change_tool_pen",
+      "set_transparency_level_6",
+      "set_size_level_7"
+    ],
+    "id" : "change_tool_to_highlighter_9B8CE5DB-B341-4554-BA78-BB083B92EBB8",
+    "name" : "Highlighter Tool",
+    "iconName" : "highlighter"
+  },
+  {
+    "commands" : [
+      "exit_text_input_mode",
+      "escape"
+    ],
+    "id" : "reallyescape_AADA04FF-C6E6-4E67-8A1D-DEAC9AC7A9F1",
+    "name" : "ReallyEscape",
+    "iconName" : "star"
+  }
+]

@@ -1,0 +1,215 @@
+{
+  "set_size_level_6" : {
+    "key" : ""
+  },
+  "toggle_combos" : {
+    "key" : ""
+  },
+  "toggle_license_view" : {
+    "key" : ""
+  },
+  "scale_down_selected_annotations" : {
+    "key" : "Keypad +"
+  },
+  "import_image" : {
+    "key" : ""
+  },
+  "toggle_color_selector" : {
+    "key" : ""
+  },
+  "toggle_pass_through" : {
+    "key" : "A",
+    "modifiers" : [
+      "command",
+      "option",
+      "control"
+    ]
+  },
+  "toggle_folders" : {
+    "key" : ""
+  },
+  "focus_board_explorer" : {
+    "key" : "E",
+    "modifiers" : [
+      "command"
+    ]
+  },
+  "combo_arrow_tool_AA8B934C-4086-4A51-A663-DC98788FDD26" : {
+    "key" : "A"
+  },
+  "change_tool_snip" : {
+    "key" : "X"
+  },
+  "change_color_blue" : {
+    "key" : "2"
+  },
+  "combo_change_tool_to_pen_E584A35C-4E29-453E-B6BD-FCEA233091E6" : {
+    "key" : "F"
+  },
+  "combo_change_tool_to_highlighter_9B8CE5DB-B341-4554-BA78-BB083B92EBB8" : {
+    "key" : "G"
+  },
+  "set_size_level_7" : {
+    "key" : ""
+  },
+  "export_to_png" : {
+    "key" : ""
+  },
+  "change_color_red" : {
+    "key" : "3"
+  },
+  "change_tool_line" : {
+    "key" : ""
+  },
+  "change_tool_rectangle" : {
+    "key" : ""
+  },
+  "set_size_level_9" : {
+    "key" : ""
+  },
+  "toggle_keyboard_shortcuts" : {
+    "key" : ""
+  },
+  "change_color_gradient_dark" : {
+    "key" : "1"
+  },
+  "change_color_gradient_light" : {
+    "key" : "7"
+  },
+  "change_color_green" : {
+    "key" : "4"
+  },
+  "change_tool_pen" : {
+    "key" : ""
+  },
+  "toggle_color_pick_mode" : {
+    "key" : "9"
+  },
+  "toggle_ui" : {
+    "key" : "V",
+    "modifiers" : [
+      "control"
+    ]
+  },
+  "toggle_sections" : {
+    "key" : ""
+  },
+  "change_color_black" : {
+    "key" : "5"
+  },
+  "combo_box_tool_8F636B3A-64B6-455A-A998-01BBF5815ABE" : {
+    "key" : "R"
+  },
+  "clear_annotations" : {
+    "key" : "⌫",
+    "modifiers" : [
+      "shift"
+    ]
+  },
+  "toggle_command_palette" : {
+    "key" : ";",
+    "modifiers" : [
+      "shift"
+    ]
+  },
+  "combo_straightline_tool_26791744-FE74-445B-BD4A-D8D56B6BDF04" : {
+    "key" : "S"
+  },
+  "change_tool_circle_filled" : {
+    "key" : "C",
+    "modifiers" : [
+      "shift"
+    ]
+  },
+  "change_tool_circle" : {
+    "key" : ""
+  },
+  "escape" : {
+    "key" : ""
+  },
+  "set_size_level_1" : {
+    "key" : ""
+  },
+  "toggle_font_family" : {
+    "key" : ""
+  },
+  "set_size_level_2" : {
+    "key" : ""
+  },
+  "set_size_level_3" : {
+    "key" : ""
+  },
+  "combo_circle_tool_011274CA-CD38-430F-9C7C-522C125AF6BA" : {
+    "key" : "C"
+  },
+  "change_color_solid_blue" : {
+    "key" : "1"
+  },
+  "toggle_corner_radius_editor" : {
+    "key" : ""
+  },
+  "set_size_level_5" : {
+    "key" : ""
+  },
+  "zoom_fit_all_content" : {
+    "key" : ""
+  },
+  "toggle_window_visibility" : {
+    "key" : "A",
+    "modifiers" : [
+      "command",
+      "control"
+    ]
+  },
+  "set_size_level_8" : {
+    "key" : ""
+  },
+  "toggle_whiteboard" : {
+    "key" : "W"
+  },
+  "scale_up_selected_annotations" : {
+    "key" : ""
+  },
+  "toggle_blackboard" : {
+    "key" : "B"
+  },
+  "combo_reallyescape_AADA04FF-C6E6-4E67-8A1D-DEAC9AC7A9F1" : {
+    "key" : "⎋"
+  },
+  "change_tool_arrow" : {
+    "key" : ""
+  },
+  "save_state" : {
+    "key" : "S",
+    "modifiers" : [
+      "command"
+    ]
+  },
+  "increase_size" : {
+    "key" : "Keypad +",
+    "modifiers" : [
+
+    ]
+  },
+  "exit_text_input_mode" : {
+    "key" : ""
+  },
+  "check_for_updates" : {
+    "key" : ""
+  },
+  "undo" : {
+    "key" : "Z"
+  },
+  "set_size_level_4" : {
+    "key" : ""
+  },
+  "toggle_board_search" : {
+    "key" : "\/"
+  },
+  "redo" : {
+    "key" : "Z",
+    "modifiers" : [
+      "shift"
+    ]
+  }
+}
