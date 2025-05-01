@@ -94,7 +94,7 @@ vnoremap <m-j> :m '>+1<CR>gv
 vnoremap <m-k> :m '<-2<CR>gv
 
 "code interactions
-map <leader>cr <Action>(ReformatCode)
+map <leader>cr <Action>(ReformatCode) <Action>(SilentCodeCleanup)
 map <leader>ca <Action>(ShowIntentionActions)
 map <leader>cc <Action>(CommentByLineComment)
 map <leader>cC <Action>(CommentByBlockComment)

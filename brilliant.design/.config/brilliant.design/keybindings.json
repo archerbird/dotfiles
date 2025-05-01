@@ -1,213 +1,213 @@
 {
-  "change_tool_line" : {
-    "key" : ""
-  },
-  "change_color_red" : {
-    "key" : "3"
-  },
-  "change_tool_snip" : {
-    "key" : "X"
-  },
-  "zoom_fit_all_content" : {
-    "key" : ""
-  },
-  "toggle_ui" : {
-    "key" : "V",
-    "modifiers" : [
-      "control"
-    ]
-  },
-  "combo_arrow_tool_AA8B934C-4086-4A51-A663-DC98788FDD26" : {
-    "key" : "A"
-  },
-  "toggle_color_pick_mode" : {
-    "key" : "9"
-  },
-  "change_color_blue" : {
-    "key" : "2"
-  },
-  "change_color_black" : {
-    "key" : "5"
-  },
-  "combo_straightline_tool_26791744-FE74-445B-BD4A-D8D56B6BDF04" : {
-    "key" : "S"
-  },
-  "combo_box_tool_8F636B3A-64B6-455A-A998-01BBF5815ABE" : {
-    "key" : "R"
-  },
-  "toggle_folders" : {
-    "key" : ""
-  },
-  "set_size_level_3" : {
-    "key" : ""
-  },
-  "combo_change_tool_to_pen_E584A35C-4E29-453E-B6BD-FCEA233091E6" : {
-    "key" : "F"
-  },
-  "redo" : {
-    "key" : "Z",
-    "modifiers" : [
-      "shift"
-    ]
-  },
-  "scale_down_selected_annotations" : {
-    "key" : "-"
-  },
-  "toggle_whiteboard" : {
-    "key" : "W"
-  },
-  "change_color_green" : {
-    "key" : "4"
-  },
-  "change_color_gradient_light" : {
-    "key" : "7"
-  },
-  "exit_text_input_mode" : {
-    "key" : ""
-  },
-  "scale_up_selected_annotations" : {
-    "key" : "Keypad +",
-    "modifiers" : [
-
-    ]
-  },
-  "set_size_level_2" : {
-    "key" : ""
-  },
-  "set_size_level_1" : {
-    "key" : ""
-  },
-  "combo_change_tool_to_highlighter_9B8CE5DB-B341-4554-BA78-BB083B92EBB8" : {
-    "key" : "G"
-  },
-  "toggle_board_search" : {
-    "key" : "\/"
-  },
-  "set_size_level_7" : {
-    "key" : ""
-  },
-  "escape" : {
-    "key" : ""
-  },
-  "undo" : {
-    "key" : "Z"
-  },
-  "change_tool_arrow" : {
-    "key" : ""
-  },
-  "set_size_level_8" : {
-    "key" : ""
-  },
-  "set_size_level_9" : {
-    "key" : ""
-  },
-  "change_tool_rectangle" : {
-    "key" : ""
-  },
-  "toggle_window_visibility" : {
-    "key" : "A",
-    "modifiers" : [
-      "command",
-      "control"
-    ]
-  },
-  "change_color_gradient_dark" : {
-    "key" : "1"
-  },
-  "save_state" : {
-    "key" : "S",
-    "modifiers" : [
-      "command"
-    ]
-  },
-  "toggle_color_selector" : {
-    "key" : ""
-  },
-  "combo_circle_tool_011274CA-CD38-430F-9C7C-522C125AF6BA" : {
-    "key" : "C"
-  },
-  "combo_reallyescape_AADA04FF-C6E6-4E67-8A1D-DEAC9AC7A9F1" : {
-    "key" : "⎋"
-  },
-  "set_size_level_5" : {
-    "key" : ""
-  },
-  "change_tool_circle_filled" : {
-    "key" : "C",
-    "modifiers" : [
-      "shift"
-    ]
-  },
   "check_for_updates" : {
-    "key" : ""
-  },
-  "change_color_solid_blue" : {
-    "key" : "1"
-  },
-  "toggle_font_family" : {
     "key" : ""
   },
   "toggle_corner_radius_editor" : {
     "key" : ""
   },
-  "toggle_pass_through" : {
-    "key" : "F1",
-    "modifiers" : [
-      "function"
-    ]
-  },
-  "toggle_license_view" : {
+  "set_size_level_5" : {
     "key" : ""
   },
   "set_size_level_4" : {
     "key" : ""
   },
-  "toggle_command_palette" : {
-    "key" : ";",
+  "combo_straightline_tool_26791744-FE74-445B-BD4A-D8D56B6BDF04" : {
+    "key" : "S"
+  },
+  "toggle_color_selector" : {
+    "key" : ""
+  },
+  "scale_up_selected_annotations" : {
+    "key" : "Keypad +"
+  },
+  "decrease_size" : {
+    "key" : ""
+  },
+  "toggle_pass_through" : {
+    "modifiers" : [
+      "function"
+    ],
+    "key" : "F1"
+  },
+  "combo_circle_tool_011274CA-CD38-430F-9C7C-522C125AF6BA" : {
+    "key" : "C"
+  },
+  "toggle_font_family" : {
+    "key" : ""
+  },
+  "change_tool_circle_filled" : {
     "modifiers" : [
       "shift"
-    ]
+    ],
+    "key" : "C"
   },
-  "clear_annotations" : {
-    "key" : "⌫",
-    "modifiers" : [
-      "shift"
-    ]
-  },
-  "toggle_sections" : {
+  "set_size_level_8" : {
     "key" : ""
   },
-  "focus_board_explorer" : {
-    "key" : "E",
-    "modifiers" : [
-      "command"
-    ]
-  },
-  "toggle_combos" : {
+  "change_tool_line" : {
     "key" : ""
   },
-  "change_tool_circle" : {
+  "change_tool_arrow" : {
     "key" : ""
   },
-  "set_size_level_6" : {
+  "increase_size" : {
     "key" : ""
-  },
-  "export_to_png" : {
-    "key" : ""
-  },
-  "toggle_blackboard" : {
-    "key" : "B"
   },
   "change_tool_pen" : {
+    "key" : ""
+  },
+  "set_size_level_3" : {
     "key" : ""
   },
   "toggle_keyboard_shortcuts" : {
     "key" : ""
   },
+  "change_tool_rectangle" : {
+    "key" : ""
+  },
+  "toggle_blackboard" : {
+    "key" : "B"
+  },
+  "change_color_gradient_light" : {
+    "key" : "7"
+  },
+  "set_size_level_9" : {
+    "key" : ""
+  },
+  "toggle_license_view" : {
+    "key" : ""
+  },
+  "undo" : {
+    "key" : "Z"
+  },
+  "save_state" : {
+    "modifiers" : [
+      "command"
+    ],
+    "key" : "S"
+  },
+  "escape" : {
+    "key" : ""
+  },
+  "redo" : {
+    "modifiers" : [
+      "shift"
+    ],
+    "key" : "Z"
+  },
+  "set_size_level_6" : {
+    "key" : ""
+  },
+  "clear_annotations" : {
+    "modifiers" : [
+      "shift"
+    ],
+    "key" : "⌫"
+  },
+  "change_color_black" : {
+    "key" : "5"
+  },
+  "combo_change_tool_to_highlighter_9B8CE5DB-B341-4554-BA78-BB083B92EBB8" : {
+    "key" : "G"
+  },
+  "combo_arrow_tool_AA8B934C-4086-4A51-A663-DC98788FDD26" : {
+    "key" : "A"
+  },
+  "change_color_solid_blue" : {
+    "key" : "1"
+  },
   "import_image" : {
     "key" : ""
   },
-  "increase_size" : {
-    "key" : "Keypad +"
+  "combo_reallyescape_AADA04FF-C6E6-4E67-8A1D-DEAC9AC7A9F1" : {
+    "key" : "⎋"
+  },
+  "toggle_folders" : {
+    "key" : ""
+  },
+  "toggle_color_pick_mode" : {
+    "key" : "9"
+  },
+  "change_color_green" : {
+    "key" : "4"
+  },
+  "set_size_level_7" : {
+    "key" : ""
+  },
+  "scale_down_selected_annotations" : {
+    "key" : "-"
+  },
+  "toggle_board_search" : {
+    "key" : "\/"
+  },
+  "set_size_level_2" : {
+    "key" : ""
+  },
+  "change_tool_circle" : {
+    "key" : ""
+  },
+  "toggle_whiteboard" : {
+    "key" : "W"
+  },
+  "toggle_combos" : {
+    "key" : ""
+  },
+  "toggle_command_palette" : {
+    "modifiers" : [
+      "shift"
+    ],
+    "key" : ";"
+  },
+  "change_tool_snip" : {
+    "key" : "X"
+  },
+  "toggle_sections" : {
+    "key" : ""
+  },
+  "toggle_window_visibility" : {
+    "modifiers" : [
+      "command",
+      "control"
+    ],
+    "key" : "A"
+  },
+  "change_color_gradient_dark" : {
+    "key" : "1"
+  },
+  "exit_text_input_mode" : {
+    "key" : ""
+  },
+  "zoom_fit_all_content" : {
+    "key" : ""
+  },
+  "combo_change_tool_to_pen_E584A35C-4E29-453E-B6BD-FCEA233091E6" : {
+    "key" : "F"
+  },
+  "change_color_red" : {
+    "key" : "3"
+  },
+  "focus_board_explorer" : {
+    "modifiers" : [
+      "command"
+    ],
+    "key" : "E"
+  },
+  "change_color_blue" : {
+    "key" : "2"
+  },
+  "export_to_png" : {
+    "key" : ""
+  },
+  "toggle_ui" : {
+    "modifiers" : [
+      "control"
+    ],
+    "key" : "V"
+  },
+  "combo_box_tool_8F636B3A-64B6-455A-A998-01BBF5815ABE" : {
+    "key" : "R"
+  },
+  "set_size_level_1" : {
+    "key" : ""
   }
 }

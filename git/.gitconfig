@@ -1,7 +1,7 @@
 [user]
 	name = Kyle McDowell
 	email = 10101986+archerbird@users.noreply.github.com
-	signingkey = 77D02C7E4709BFDB
+	signingkey = 89FFA7BC68DD50EE6345C15777D02C7E4709BFDB
 [core]
 	autocrlf = input
 	ignorecase = false
