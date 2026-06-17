@@ -1,0 +1,240 @@
+==== Brilliant Update Log ====
+Started: 2025-05-16_10-13-46
+
+[10:13:46.625] 🚀 Starting installation process for version 1.5.2
+[10:13:46.628] 📱 Current app name: Brilliant.Design
+[10:13:46.631] 📁 Moving downloaded file to temporary location: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[10:13:46.633] ✅ Successfully moved downloaded file to: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[10:13:46.637] 💿 Attempting to mount DMG
+[10:13:50.354] ✅ Successfully mounted DMG at: /Volumes/Brilliant.Design Installer
+[10:13:50.357] 📂 Examining DMG contents
+[10:13:50.365] 📂 DMG contents: .background, .DS_Store, .fseventsd, Applications, Brilliant.Design.app, README.txt
+[10:13:50.369] 🔍 DMG App Detection - new app exists: false, old app exists: true
+[10:13:50.374] 🔄 Using old app format
+[10:13:50.377] 📤 Source: /Volumes/Brilliant.Design Installer/Brilliant.Design.app
+[10:13:50.379] 📥 Destination: /Applications/Brilliant.Design.app
+[10:13:50.385] 🔑 Applications folder permissions: [__C.NSFileAttributeKey(_rawValue: NSFileGroupOwnerAccountName): "admin", __C.NSFileAttributeKey(_rawValue: NSFileModificationDate): 2025-05-14 13:44:29 +0000, __C.NSFileAttributeKey(_rawValue: NSFileReferenceCount): 54, __C.NSFileAttributeKey(_rawValue: NSFileImmutable): 0, __C.NSFileAttributeKey(_rawValue: NSFileOwnerAccountID): 0, __C.NSFileAttributeKey(_rawValue: NSFileSize): 1728, __C.NSFileAttributeKey(_rawValue: NSFileAppendOnly): 0, __C.NSFileAttributeKey(_rawValue: NSFileOwnerAccountName): "root", __C.NSFileAttributeKey(_rawValue: NSFileSystemFileNumber): 6337283, __C.NSFileAttributeKey(_rawValue: NSFileExtensionHidden): 0, __C.NSFileAttributeKey(_rawValue: NSFileCreationDate): 2025-05-04 05:39:22 +0000, __C.NSFileAttributeKey(_rawValue: NSFilePosixPermissions): 509, __C.NSFileAttributeKey(_rawValue: NSFileType): NSFileTypeDirectory, __C.NSFileAttributeKey(_rawValue: NSFileGroupOwnerAccountID): 80, __C.NSFileAttributeKey(_rawValue: NSFileSystemNumber): 16777231]
+[10:13:50.390] 🔑 Can write to Applications: true
+[10:13:50.394] 🔑 Running as admin: false
+[10:13:50.397] 🗑️ Removing existing app at: /Applications/Brilliant.Design.app
+[10:13:50.405] ✅ Successfully removed existing app
+[10:13:50.407] 📋 Copying new version from /Volumes/Brilliant.Design Installer/Brilliant.Design.app to /Applications/Brilliant.Design.app
+[10:13:50.408] 📋 Source exists: true
+[10:13:50.516] ✅ Successfully copied new version to: /Applications/Brilliant.Design.app
+[10:13:50.518] 💿 Unmounting DMG
+[10:13:50.589] ✅ Successfully unmounted DMG
+[10:13:50.591] 🧹 Cleaned up temporary files
+[10:13:50.593] 💾 Set update key: JustUpdatedBrilliant.Design
+[10:13:50.595] 🏁 Installation process completed successfully, preparing to restart app
+
+
+==== Brilliant Update Log ====
+Started: 2025-05-16_10-13-50
+
+[10:13:50.598] 🔄 Beginning restart process for: /Applications/Brilliant.Design.app
+[10:13:50.599] 📝 Registering app with Launch Services
+[10:13:50.665] ✅ Registered app with Launch Services
+[10:13:51.669] 🚀 Attempting to launch app using NSWorkspace
+[10:13:51.692] ✅ Successfully launched new app
+[10:13:54.752] 👋 Terminating current app
+
+
+==== Brilliant Update Log ====
+Started: 2025-05-21_09-46-28
+
+[09:46:28.644] 🚀 Starting installation process for version 1.5.6
+[09:46:28.650] 📱 Current app name: Brilliant.Design
+[09:46:28.655] 📁 Moving downloaded file to temporary location: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[09:46:28.663] ✅ Successfully moved downloaded file to: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[09:46:28.667] 💿 Attempting to mount DMG
+[09:46:31.282] ✅ Successfully mounted DMG at: /Volumes/Brilliant.Design Installer
+[09:46:31.285] 📂 Examining DMG contents
+[09:46:31.288] 📂 DMG contents: .background, .DS_Store, .fseventsd, Applications, Brilliant.Design.app, README.txt
+[09:46:31.290] 🔍 DMG App Detection - new app exists: false, old app exists: true
+[09:46:31.292] 🔄 Using old app format
+[09:46:31.294] 📤 Source: /Volumes/Brilliant.Design Installer/Brilliant.Design.app
+[09:46:31.296] 📥 Destination: /Applications/Brilliant.Design.app
+[09:46:31.303] 🔑 Applications folder permissions: [__C.NSFileAttributeKey(_rawValue: NSFileModificationDate): 2025-05-20 19:44:37 +0000, __C.NSFileAttributeKey(_rawValue: NSFileType): NSFileTypeDirectory, __C.NSFileAttributeKey(_rawValue: NSFileSystemFileNumber): 6337283, __C.NSFileAttributeKey(_rawValue: NSFileReferenceCount): 54, __C.NSFileAttributeKey(_rawValue: NSFileGroupOwnerAccountID): 80, __C.NSFileAttributeKey(_rawValue: NSFileSystemNumber): 16777232, __C.NSFileAttributeKey(_rawValue: NSFileExtensionHidden): 0, __C.NSFileAttributeKey(_rawValue: NSFileSize): 1728, __C.NSFileAttributeKey(_rawValue: NSFileGroupOwnerAccountName): "admin", __C.NSFileAttributeKey(_rawValue: NSFileImmutable): 0, __C.NSFileAttributeKey(_rawValue: NSFileAppendOnly): 0, __C.NSFileAttributeKey(_rawValue: NSFileOwnerAccountName): "root", __C.NSFileAttributeKey(_rawValue: NSFilePosixPermissions): 509, __C.NSFileAttributeKey(_rawValue: NSFileCreationDate): 2025-05-04 05:39:22 +0000, __C.NSFileAttributeKey(_rawValue: NSFileOwnerAccountID): 0]
+[09:46:31.305] 🔑 Can write to Applications: true
+[09:46:31.307] 🔑 Running as admin: false
+[09:46:31.310] 🗑️ Removing existing app at: /Applications/Brilliant.Design.app
+[09:46:31.315] ✅ Successfully removed existing app
+[09:46:31.316] 📋 Copying new version from /Volumes/Brilliant.Design Installer/Brilliant.Design.app to /Applications/Brilliant.Design.app
+[09:46:31.318] 📋 Source exists: true
+[09:46:31.403] ✅ Successfully copied new version to: /Applications/Brilliant.Design.app
+[09:46:31.405] 💿 Unmounting DMG
+[09:46:31.453] ✅ Successfully unmounted DMG
+[09:46:31.455] 🧹 Cleaned up temporary files
+[09:46:31.457] 💾 Set update key: JustUpdatedBrilliant.Design
+[09:46:31.458] 🏁 Installation process completed successfully, preparing to restart app
+
+
+==== Brilliant Update Log ====
+Started: 2025-05-21_09-46-31
+
+[09:46:31.461] 🔄 Beginning restart process for: /Applications/Brilliant.Design.app
+[09:46:31.462] 📝 Registering app with Launch Services
+[09:46:31.516] ✅ Registered app with Launch Services
+[09:46:32.519] 🚀 Attempting to launch app using NSWorkspace
+[09:46:32.541] ✅ Successfully launched new app
+[09:46:35.565] 👋 Terminating current app
+
+
+==== Brilliant Update Log ====
+Started: 2025-05-28_10-46-37
+
+[10:46:37.697] 🚀 Starting installation process for version 1.6.4
+[10:46:37.702] 📱 Current app name: Brilliant.Design
+[10:46:37.707] 📁 Moving downloaded file to temporary location: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[10:46:37.716] ✅ Successfully moved downloaded file to: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[10:46:37.721] 💿 Attempting to mount DMG
+[10:46:40.691] ✅ Successfully mounted DMG at: /Volumes/Brilliant.Design Installer
+[10:46:40.697] 📂 Examining DMG contents
+[10:46:40.704] 📂 DMG contents: .background, .DS_Store, .fseventsd, Applications, Brilliant.Design.app, README.txt
+[10:46:40.709] 🔍 DMG App Detection - new app exists: false, old app exists: true
+[10:46:40.712] 🔄 Using old app format
+[10:46:40.716] 📤 Source: /Volumes/Brilliant.Design Installer/Brilliant.Design.app
+[10:46:40.719] 📥 Destination: /Applications/Brilliant.Design.app
+[10:46:40.727] 🔑 Applications folder permissions: [__C.NSFileAttributeKey(_rawValue: NSFileGroupOwnerAccountID): 80, __C.NSFileAttributeKey(_rawValue: NSFileAppendOnly): 0, __C.NSFileAttributeKey(_rawValue: NSFileType): NSFileTypeDirectory, __C.NSFileAttributeKey(_rawValue: NSFilePosixPermissions): 509, __C.NSFileAttributeKey(_rawValue: NSFileOwnerAccountID): 0, __C.NSFileAttributeKey(_rawValue: NSFileSystemNumber): 16777233, __C.NSFileAttributeKey(_rawValue: NSFileModificationDate): 2025-05-28 03:40:08 +0000, __C.NSFileAttributeKey(_rawValue: NSFileImmutable): 0, __C.NSFileAttributeKey(_rawValue: NSFileSystemFileNumber): 6337283, __C.NSFileAttributeKey(_rawValue: NSFileCreationDate): 2025-05-04 05:39:22 +0000, __C.NSFileAttributeKey(_rawValue: NSFileOwnerAccountName): "root", __C.NSFileAttributeKey(_rawValue: NSFileGroupOwnerAccountName): "admin", __C.NSFileAttributeKey(_rawValue: NSFileReferenceCount): 54, __C.NSFileAttributeKey(_rawValue: NSFileExtensionHidden): 0, __C.NSFileAttributeKey(_rawValue: NSFileSize): 1728]
+[10:46:40.730] 🔑 Can write to Applications: true
+[10:46:40.733] 🔑 Running as admin: false
+[10:46:40.735] 🗑️ Removing existing app at: /Applications/Brilliant.Design.app
+[10:46:40.743] ✅ Successfully removed existing app
+[10:46:40.745] 📋 Copying new version from /Volumes/Brilliant.Design Installer/Brilliant.Design.app to /Applications/Brilliant.Design.app
+[10:46:40.747] 📋 Source exists: true
+[10:46:40.879] ✅ Successfully copied new version to: /Applications/Brilliant.Design.app
+[10:46:40.880] 💿 Unmounting DMG
+[10:46:40.934] ✅ Successfully unmounted DMG
+[10:46:40.936] 🧹 Cleaned up temporary files
+[10:46:40.937] 💾 Set update key: JustUpdatedBrilliant.Design
+[10:46:40.938] 🏁 Installation process completed successfully, preparing to restart app
+
+
+==== Brilliant Update Log ====
+Started: 2025-05-28_10-46-40
+
+[10:46:40.941] 🔄 Beginning restart process for: /Applications/Brilliant.Design.app
+[10:46:40.942] 📝 Registering app with Launch Services
+[10:46:41.014] ✅ Registered app with Launch Services
+[10:46:42.017] 🚀 Attempting to launch app using NSWorkspace
+[10:46:42.035] ✅ Successfully launched new app
+
+
+==== Brilliant Update Log ====
+Started: 2025-05-28_10-46-43
+
+[10:46:43.817] 🚀 Starting installation process for version 1.6.4
+[10:46:43.821] 📱 Current app name: Brilliant.Design
+[10:46:43.826] 📁 Moving downloaded file to temporary location: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[10:46:43.830] ✅ Successfully moved downloaded file to: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[10:46:43.834] 💿 Attempting to mount DMG
+[10:46:45.040] 👋 Terminating current app
+
+
+==== Brilliant Update Log ====
+Started: 2025-05-29_09-08-13
+
+[09:08:13.549] 🚀 Starting installation process for version 1.6.5
+[09:08:13.554] 📱 Current app name: Brilliant.Design
+[09:08:13.566] 📁 Moving downloaded file to temporary location: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[09:08:13.570] 🗑️ Removed existing temporary DMG
+[09:08:13.576] ✅ Successfully moved downloaded file to: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[09:08:13.579] 💿 Attempting to mount DMG
+[09:08:17.392] ✅ Successfully mounted DMG at: /Volumes/Brilliant.Design Installer 1
+[09:08:17.395] 📂 Examining DMG contents
+[09:08:17.398] 📂 DMG contents: .background, .DS_Store, .fseventsd, Applications, Brilliant.Design.app, README.txt
+[09:08:17.400] 🔍 DMG App Detection - new app exists: false, old app exists: true
+[09:08:17.401] 🔄 Using old app format (Brilliant.Design.app)
+[09:08:17.403] 📤 Source: /Volumes/Brilliant.Design Installer 1/Brilliant.Design.app
+[09:08:17.405] 📥 Destination: /Applications/Brilliant.Design.app
+[09:08:17.407] 🔄 Is name change: false
+[09:08:17.418] 🔄 Performing same-name installation (Bananotate-style)
+[09:08:17.420] 🗑️ Removing existing app at: /Applications/Brilliant.Design.app
+[09:08:17.426] ✅ Successfully removed existing app
+[09:08:17.429] 📋 Copying new version from /Volumes/Brilliant.Design Installer 1/Brilliant.Design.app to /Applications/Brilliant.Design.app
+[09:08:17.530] ✅ Successfully copied new version to: /Applications/Brilliant.Design.app
+[09:08:17.531] 💿 Unmounting DMG
+[09:08:17.614] ✅ Successfully unmounted DMG
+[09:08:17.617] 🧹 Cleaned up temporary files
+[09:08:17.618] 💾 Set update key: JustUpdatedBrilliant.Design
+[09:08:17.619] 🏁 Installation process completed successfully, preparing to restart app
+
+
+==== Brilliant Update Log ====
+Started: 2025-05-29_09-08-17
+
+[09:08:17.622] 🔄 Beginning simple restart process (Bananotate-style)
+[09:08:17.624] ✅ Successfully launched new app using simple method
+[09:08:17.632] 👋 Terminating current app
+
+
+==== Brilliant Update Log ====
+Started: 2025-08-15_16-25-27
+
+[16:25:27.309] 🚀 Starting installation process for version 1.8.8
+[16:25:27.318] 📱 Current app name: Brilliant.Design
+[16:25:27.334] 📁 Moving downloaded file to temporary location: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[16:25:27.341] ✅ Successfully moved downloaded file to: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[16:25:27.345] 💿 Attempting to mount DMG
+[16:25:30.517] ✅ Successfully mounted DMG at: /Volumes/Brilliant.Design Installer
+[16:25:30.522] 📂 Examining DMG contents
+[16:25:30.530] 📂 DMG contents: .background, .DS_Store, .fseventsd, Applications, Brilliant.Design.app, README.txt
+[16:25:30.535] 🔍 DMG App Detection - new app exists: false, old app exists: true
+[16:25:30.539] 🔄 Using old app format (Brilliant.Design.app)
+[16:25:30.543] 📤 Source: /Volumes/Brilliant.Design Installer/Brilliant.Design.app
+[16:25:30.548] 📥 Destination: /Applications/Brilliant.Design.app
+[16:25:30.553] 🔄 Is name change: false
+[16:25:30.559] 🔄 Performing same-name installation (Bananotate-style)
+[16:25:30.570] 🗑️ Removing existing app at: /Applications/Brilliant.Design.app
+[16:25:30.587] ✅ Successfully removed existing app
+[16:25:30.618] 📋 Copying new version from /Volumes/Brilliant.Design Installer/Brilliant.Design.app to /Applications/Brilliant.Design.app
+[16:25:30.749] ✅ Successfully copied new version to: /Applications/Brilliant.Design.app
+[16:25:30.751] 💿 Unmounting DMG
+[16:25:30.880] ✅ Successfully unmounted DMG
+[16:25:30.883] 🧹 Cleaned up temporary files
+[16:25:30.885] 💾 Set update key: JustUpdatedBrilliant.Design
+[16:25:30.887] 🏁 Installation process completed successfully, preparing to restart app
+
+
+==== Brilliant Update Log ====
+Started: 2025-08-15_16-25-30
+
+[16:25:30.890] 🔄 Beginning simple restart process (Bananotate-style)
+[16:25:30.896] ✅ Successfully launched new app using simple method
+[16:25:30.917] 👋 Terminating current app
+
+
+==== Brilliant Update Log ====
+Started: 2025-10-16_15-37-13
+
+[15:37:13.601] 🚀 Starting installation process for version 1.8.9
+[15:37:13.612] 📱 Current app name: Brilliant.Design
+[15:37:13.632] 📁 Moving downloaded file to temporary location: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[15:37:13.664] ✅ Successfully moved downloaded file to: /var/folders/b4/zk56n7214z1d87gd551jhqhm0000gp/T/BrilliantUpdate.dmg
+[15:37:13.841] 💿 Attempting to mount DMG
+[15:37:15.515] ✅ Successfully mounted DMG at: /Volumes/Brilliant.Design Installer
+[15:37:15.521] 📂 Examining DMG contents
+[15:37:15.531] 📂 DMG contents: .background, .DS_Store, .fseventsd, Applications, Brilliant.Design.app, README.txt
+[15:37:15.538] 🔍 DMG App Detection - new app exists: false, old app exists: true
+[15:37:15.544] 🔄 Using old app format (Brilliant.Design.app)
+[15:37:15.565] 📤 Source: /Volumes/Brilliant.Design Installer/Brilliant.Design.app
+[15:37:15.570] 📥 Destination: /Applications/Brilliant.Design.app
+[15:37:15.577] 🔄 Is name change: false
+[15:37:15.583] 🔄 Performing same-name installation (Bananotate-style)
+[15:37:15.589] 🗑️ Removing existing app at: /Applications/Brilliant.Design.app
+[15:37:15.627] ✅ Successfully removed existing app
+[15:37:15.629] 📋 Copying new version from /Volumes/Brilliant.Design Installer/Brilliant.Design.app to /Applications/Brilliant.Design.app
+[15:37:16.001] ✅ Successfully copied new version to: /Applications/Brilliant.Design.app
+[15:37:16.003] 💿 Unmounting DMG
+[15:37:18.744] ✅ Successfully unmounted DMG
+[15:37:18.748] 🧹 Cleaned up temporary files
+[15:37:18.758] 💾 Set update key: JustUpdatedBrilliant.Design
+[15:37:18.764] 🏁 Installation process completed successfully, preparing to restart app
+
+
+==== Brilliant Update Log ====
+Started: 2025-10-16_15-37-18
+
+[15:37:18.778] 🔄 Beginning simple restart process (Bananotate-style)
+[15:37:18.787] ✅ Successfully launched new app using simple method
+[15:37:18.825] 👋 Terminating current app

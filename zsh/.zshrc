@@ -34,20 +34,25 @@ alias lf="la --only-files"
 alias ld="la --only-dirs"
 alias lt="eza --tree --level=2 --icons --git --group-directories-first"
 
-# use zoxide for cd
-alias cd="z"
-eval "$(zoxide init zsh)"
+#alias cd="z"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+eval "$(zoxide init --cmd cd zsh)"
 
-# show an ls after each cd
-function chpwd() {
-    emulate -L zsh
-    ls -a
-}
+# use zoxide for cd (disable option is for claude code)
+if [[ "$CLAUDECODE" != "1" ]]; then
+fi
+
+# show an ls after each cd (but not in claude code)
+if [[ "$CLAUDECODE" != "1" ]]; then
+  function chpwd() {
+      emulate -L zsh
+      ls -a
+  }
+fi
 
 #just make the damn dirs
 alias mkdir="mkdir -p"
@@ -99,6 +104,11 @@ alias dnf="dnc; dnr; dnb"
 alias ezsh="nvim ~/.zshrc"
 alias etmux="nvim ~/.config/tmux/tmux.conf"
 
+
+# foxen local dev shortcuts
+alias up-resapi='dotnet run --launch-profile "local_be" --project ~/code/fx-res-external/src/server/api/Foxen.Api.Server/Foxen.Api.Server.csproj'
+alias up-v2api='dotnet run --launch-profile "CLI_DEV" --project ~/code/fx-v2/Foxen.Internal/Foxen.Internal.csproj'
+
 # set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND='fd  --hidden --strip-cwd-prefix --exclude .git'
@@ -144,6 +154,246 @@ _dotnet_zsh_complete()
   _values = "${(ps:\n:)completions}"
 }
 
+# colima
+colima-reset() {
+  colima stop -f 2>/dev/null
+  colima delete -f 2>/dev/null
+  pkill -f 'limactl|colima' 2>/dev/null
+  rm -rf ~/.colima/_lima/_networks/
+  # Azure VPN breaks lima's usernet DHCP; disconnect during startup
+  local vpn_was_connected=false
+  if scutil --nc status "$FOXVPN_SVC" 2>/dev/null | grep -q Connected; then
+    vpn_was_connected=true
+    echo "Disconnecting $FOXVPN_SVC (breaks usernet DHCP)..."
+    scutil --nc stop "$FOXVPN_SVC"
+    sleep 2
+  fi
+  colima start --vm-type vz --memory 4 --cpu 2
+  if $vpn_was_connected; then
+    echo "Reconnecting $FOXVPN_SVC..."
+    scutil --nc start "$FOXVPN_SVC"
+  fi
+  return 0
+}
+
+# VPN
+# put the name of your vpn here
+export FOXVPN_SVC="Foxen Azure with private"
+FOXVPN_LOG="$HOME/Library/Group Containers/UBF8T346G9.group.com.microsoft.AzureVpnMac.shared/LogFiles/AzureVpnClient.log"
+FOXVPN_COOKIES="$HOME/Library/Containers/com.microsoft.AzureVpnMac/Data/Library/Cookies/Cookies.binarycookies"
+
+# Map NEVPNConnectionError LastCause codes to human-readable messages.
+_vpn_last_cause() {
+  local svc=$1
+  local cause
+  cause=$(scutil --nc status "$svc" 2>/dev/null | grep "LastCause" | awk '{print $NF}')
+  case "$cause" in
+    1)  echo "system slept too long" ;;
+    2)  echo "no network available" ;;
+    3)  echo "unrecoverable network change" ;;
+    4)  echo "configuration failed" ;;
+    5)  echo "server address resolution failed" ;;
+    6)  echo "server not responding" ;;
+    7)  echo "server died" ;;
+    8)  echo "authentication failed" ;;
+    9)  echo "client certificate invalid" ;;
+    12) echo "plugin failed" ;;
+    *)  echo "unknown (code $cause)" ;;
+  esac
+}
+
+# Poll scutil until VPN connects, a log error appears, or timeout.
+# Usage: _vpn_wait <timeout> <svc> <log_offset> <fail_hint>
+_vpn_wait() {
+  local timeout=$1 svc=$2 log_offset=$3 fail_hint=$4
+  local elapsed=0 new_lines status_line seen_connecting=0
+  while [ "$elapsed" -lt "$timeout" ]; do
+    sleep 1
+    elapsed=$((elapsed + 1))
+    status_line=$(scutil --nc list | grep "\"$svc\"")
+    if [[ $status_line == *"(Connected)"* ]]; then
+      echo "VPN connected successfully (${elapsed}s)."
+      return 0
+    fi
+    if [[ $status_line == *"(Connecting)"* || $status_line == *"(Reasserting)"* ]]; then
+      seen_connecting=1
+    fi
+    if [[ $seen_connecting -eq 1 && $status_line == *"(Disconnected)"* ]]; then
+      local reason
+      reason=$(_vpn_last_cause "$svc")
+      echo "VPN connection failed (${elapsed}s): $reason."
+      if [[ $reason == *"authentication"* || $reason == *"certificate"* ]]; then
+        echo "Run: vpn reauth"
+      else
+        echo "$fail_hint"
+      fi
+      return 1
+    fi
+    if [ -f "$FOXVPN_LOG" ]; then
+      new_lines=$(tail -n +$((log_offset + 1)) "$FOXVPN_LOG")
+      if echo "$new_lines" | grep -qi "failed\|unexpected error"; then
+        echo "VPN connection failed (${elapsed}s)."
+        echo ""
+        echo "Log:"
+        echo "$new_lines" | grep -i "failed\|unexpected error"
+        echo ""
+        echo "$fail_hint"
+        return 1
+      fi
+    fi
+  done
+  return 2
+}
+
+vpn() {
+  local svc="${FOXVPN_SVC:-}"
+  if [ -z "$svc" ]; then
+    echo "FOXVPN_SVC is not set. Add to your .zshrc:"
+    echo "  export FOXVPN_SVC=\"<your VPN name>\""
+    echo ""
+    echo "Available VPN services:"
+    scutil --nc list | sed -n 's/^[^"]*"\([^"]*\)".*/  \1/p'
+    return 1
+  fi
+  local status_line
+  status_line=$(scutil --nc list | grep "\"$svc\"")
+  case "$1" in
+    up)
+      if [[ $status_line == *"(Connected)"* ]]; then
+        echo "VPN '$svc' is already connected."
+        return 0
+      fi
+      local log_offset=0
+      if [ -f "$FOXVPN_LOG" ]; then
+        log_offset=$(( $(wc -l < "$FOXVPN_LOG") ))
+      fi
+      if [[ $status_line == *"(Connecting)"* || $status_line == *"(Reasserting)"* ]]; then
+        echo "VPN '$svc' is already connecting, waiting..."
+      else
+        echo "Connecting to '$svc'..."
+        scutil --nc start "$svc" 2>/dev/null
+      fi
+      _vpn_wait 30 "$svc" "$log_offset" "Likely needs re-authentication. Run: vpn reauth"
+      local rc=$?
+      if [ $rc -eq 2 ]; then
+        echo ""
+        echo "Timed out after 30s."
+        if [ -f "$FOXVPN_LOG" ]; then
+          echo ""
+          echo "Last log entries:"
+          tail -5 "$FOXVPN_LOG"
+        fi
+        echo ""
+        echo "If auth expired, run: vpn reauth"
+        return 1
+      fi
+      return $rc
+      ;;
+    down)
+      if [[ $status_line == *"(Disconnected)"* ]]; then
+        echo "VPN '$svc' is not connected."
+        return 0
+      fi
+      if [[ $status_line == *"(Disconnecting)"* ]]; then
+        echo "VPN '$svc' is already disconnecting, waiting..."
+      else
+        echo "Disconnecting '$svc'..."
+        scutil --nc stop "$svc" 2>/dev/null
+      fi
+      local timeout=30 elapsed=0
+      while [ "$elapsed" -lt "$timeout" ]; do
+        sleep 1
+        elapsed=$((elapsed + 1))
+        if scutil --nc list | grep "\"$svc\"" | grep -q "(Disconnected)"; then
+          echo "VPN disconnected (${elapsed}s)."
+          return 0
+        fi
+      done
+      echo "Disconnect timed out after ${timeout}s (may still be disconnecting)."
+      return 1
+      ;;
+    ls)
+      if [ -z "$status_line" ]; then
+        echo "VPN service '$svc' not found."
+        return 1
+      fi
+      local state
+      state=$(echo "$status_line" | sed -n 's/^[^(]*(\([^)]*\)).*/\1/p')
+      echo "VPN '$svc': $state"
+      ;;
+    reauth)
+     # Stop any active/pending connection
+      if [[ $status_line != *"(Disconnected)"* && $status_line != *"(Invalid)"* ]]; then
+        echo "Disconnecting VPN..."
+        scutil --nc stop "$svc" 2>/dev/null
+
+        # Wait until fully disconnected (or timeout)
+        local timeout=30 elapsed=0
+        while [ "$elapsed" -lt "$timeout" ]; do
+          sleep 1
+          elapsed=$((elapsed + 1))
+
+          status_line=$(scutil --nc list | grep -F "\"$svc\"")
+
+          if [[ $status_line == *"(Disconnected)"* || $status_line == *"(Invalid)"* ]]; then
+            echo "VPN fully disconnected (${elapsed}s)."
+            break
+          fi
+        done
+
+        if [[ $status_line != *"(Disconnected)"* && $status_line != *"(Invalid)"* ]]; then
+          echo "Warning: disconnect timed out after ${timeout}s."
+        fi
+      fi
+      # Clear app caches and cookies (MSAL tokens live in a sandboxed
+      # keychain inaccessible from Terminal; clearing these files plus
+      # the app restart below is what actually forces fresh OAuth)
+      echo "Clearing auth state..."
+      local container="$HOME/Library/Containers/com.microsoft.AzureVpnMac/Data/Library"
+      rm -f "$FOXVPN_COOKIES"
+      rm -rf "$container/Caches" "$container/HTTPStorages" "$container/WebKit/WebsiteData" 2>/dev/null
+      echo "  Done."
+
+      # Restart the app
+      echo "Restarting Azure VPN Client..."
+      killall "Azure VPN Client" 2>/dev/null
+      sleep 1
+      open -a "Azure VPN Client"
+      for i in {1..15}; do
+        pgrep -f "Azure VPN Client" >/dev/null && break
+        sleep 1
+      done
+      sleep 2
+
+      # Start connection (triggers OAuth browser flow)
+      local log_offset=0
+      if [ -f "$FOXVPN_LOG" ]; then
+        log_offset=$(( $(wc -l < "$FOXVPN_LOG") ))
+      fi
+      echo "Starting VPN (authenticate in the browser window)..."
+      scutil --nc start "$svc" 2>/dev/null
+
+
+      _vpn_wait 60 "$svc" "$log_offset" "Re-authentication failed."
+      local rc=$?
+      if [ $rc -eq 0 ]; then
+        osascript -e 'tell application "Azure VPN Client" to quit'
+        return 0
+      fi
+      if [ $rc -eq 2 ]; then
+        echo "Timed out after 60s. Browser auth may still be pending."
+        echo "Complete authentication, then run 'vpn up' to verify."
+        return 1
+      fi
+      return $rc
+      ;;
+    *)
+      echo "Usage: vpn {up|down|ls|reauth}"
+      return 1
+      ;;
+  esac
+}
+
 compdef _dotnet_zsh_complete dotnet
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -156,3 +406,6 @@ eval $(thefuck --alias)
 
 # fun & memes
 alias redpill="cmatrix"
+
+# so claude code doesn't run into issues
+export PATH="$HOME/.local/bin:$PATH"

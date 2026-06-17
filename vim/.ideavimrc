@@ -32,13 +32,16 @@ vnoremap <C-o> <C-d>zz
 " remap for redo
 map U <C-R>
 
-" After block yank and paste, move cursor to the end of operated text and don't override register
-vnoremap p "_dP`]
-nnoremap p p`]
+" remap for selecting whole document
+nnoremap vid ggVG
 
 " Yank to end of line
 vnoremap y ygv<Esc>$
 nnoremap Y y$
+
+" After block yank and paste, move cursor to the end of operated text and don't override register
+vnoremap p "_dP`]
+nnoremap p p`]
 
 " Make X-delete operators remove without placing text in the default registry
 nnoremap x "_x
@@ -153,7 +156,7 @@ nmap gt <Action>(GotoTypeDeclaration)
 nmap gM <Action>(MethodUp)
 nmap gm <Action>(MethodDown)
 nmap gh <Action>(ShowHoverInfo)
-map gb <Action>(VSO.Open.In.Browser)
+map gb <Action>(Tool_External Tools_Open in Azure DevOps)
 
 sethandler <C-m> a:vim
 sethandler <C-M> a:vim
