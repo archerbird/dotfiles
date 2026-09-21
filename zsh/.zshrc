@@ -94,6 +94,7 @@ alias dl="docker ps -l -q"
 alias dx="docker exec -it"
 
 # dotnet
+export DOTNET_SYSTEM_NET_SECURITY_USENETWORKFRAMEWORK=1
 alias dnr="dotnet restore --no-cache"
 alias dnb="dotnet build"
 alias dnc="dotnet clean"
@@ -165,22 +166,90 @@ colima-reset() {
   if scutil --nc status "$FOXVPN_SVC" 2>/dev/null | grep -q Connected; then
     vpn_was_connected=true
     echo "Disconnecting $FOXVPN_SVC (breaks usernet DHCP)..."
+    _vpn_auto_suspend "$FOXVPN_SVC"
     scutil --nc stop "$FOXVPN_SVC"
-    sleep 2
+    local waited=0
+    while [ $waited -lt 30 ]; do
+      scutil --nc list | grep -F "\"$FOXVPN_SVC\"" | grep -q "(Disconnected)" && break
+      sleep 1
+      waited=$((waited + 1))
+    done
   fi
   colima start --vm-type vz --memory 4 --cpu 2
   if $vpn_was_connected; then
     echo "Reconnecting $FOXVPN_SVC..."
     scutil --nc start "$FOXVPN_SVC"
+    _vpn_auto_restore "$FOXVPN_SVC"
   fi
   return 0
 }
 
 # VPN
 # put the name of your vpn here
-export FOXVPN_SVC="Foxen Azure with private"
+export FOXVPN_SVC="Foxen Azure VPN"
 FOXVPN_LOG="$HOME/Library/Group Containers/UBF8T346G9.group.com.microsoft.AzureVpnMac.shared/LogFiles/AzureVpnClient.log"
 FOXVPN_COOKIES="$HOME/Library/Containers/com.microsoft.AzureVpnMac/Data/Library/Cookies/Cookies.binarycookies"
+# The "Connect automatically" checkbox is a private app preference, not a macOS
+# on-demand rule (profiles report OnDemandEnabled : FALSE), so scutil has no
+# setter for it. The main app process reads this key at disconnect time and
+# redials; the tunnel extension does not.
+FOXVPN_PREFS="$HOME/Library/Group Containers/UBF8T346G9.group.com.microsoft.AzureVpnMac.shared/Library/Preferences/UBF8T346G9.group.com.microsoft.AzureVpnMac.shared"
+FOXVPN_STATE="$HOME/.cache/foxvpn"
+
+_vpn_marker() { printf '%s/alwayson-%s' "$FOXVPN_STATE" "${1// /_}" }
+
+# Echo a profile's "Connect automatically" setting as true|false|unknown.
+_vpn_auto_get() {
+  local val
+  val=$(defaults read "$FOXVPN_PREFS" "AlwaysOnEnabled_$1" 2>/dev/null) || { echo unknown; return }
+  case "$val" in
+    1) echo true ;;
+    0) echo false ;;
+    *) echo unknown ;;
+  esac
+}
+
+# Set a profile's "Connect automatically" setting. Usage: _vpn_auto_set <svc> true|false
+_vpn_auto_set() {
+  defaults write "$FOXVPN_PREFS" "AlwaysOnEnabled_$1" -bool "$2" 2>/dev/null
+  [[ $(_vpn_auto_get "$1") == "$2" ]]
+}
+
+# Turn "Connect automatically" off ahead of a scripted disconnect, leaving a
+# marker so _vpn_auto_restore knows to switch it back on.
+_vpn_auto_suspend() {
+  local svc=$1 marker
+  marker=$(_vpn_marker "$svc")
+  case "$(_vpn_auto_get "$svc")" in
+    true)
+      mkdir -p "$FOXVPN_STATE"
+      : > "$marker"
+      if _vpn_auto_set "$svc" false; then
+        echo "Paused 'Connect automatically'."
+      else
+        rm -f "$marker"
+        echo "Warning: could not pause 'Connect automatically'; '$svc' may reconnect itself."
+      fi
+      ;;
+    unknown)
+      echo "Warning: 'Connect automatically' state unreadable for '$svc'."
+      echo "  The Azure VPN Client may have renamed the AlwaysOnEnabled_* preference."
+      ;;
+  esac
+}
+
+# Switch "Connect automatically" back on if _vpn_auto_suspend turned it off.
+_vpn_auto_restore() {
+  local svc=$1 marker
+  marker=$(_vpn_marker "$svc")
+  [ -f "$marker" ] || return 0
+  if _vpn_auto_set "$svc" true; then
+    rm -f "$marker"
+    echo "Restored 'Connect automatically'."
+  else
+    echo "Warning: could not restore 'Connect automatically' for '$svc'."
+  fi
+}
 
 # Map NEVPNConnectionError LastCause codes to human-readable messages.
 _vpn_last_cause() {
@@ -261,6 +330,7 @@ vpn() {
     up)
       if [[ $status_line == *"(Connected)"* ]]; then
         echo "VPN '$svc' is already connected."
+        _vpn_auto_restore "$svc"
         return 0
       fi
       local log_offset=0
@@ -275,6 +345,7 @@ vpn() {
       fi
       _vpn_wait 30 "$svc" "$log_offset" "Likely needs re-authentication. Run: vpn reauth"
       local rc=$?
+      [ $rc -eq 0 ] && _vpn_auto_restore "$svc"
       if [ $rc -eq 2 ]; then
         echo ""
         echo "Timed out after 30s."
@@ -290,6 +361,7 @@ vpn() {
       return $rc
       ;;
     down)
+      _vpn_auto_suspend "$svc"
       if [[ $status_line == *"(Disconnected)"* ]]; then
         echo "VPN '$svc' is not connected."
         return 0
@@ -320,8 +392,33 @@ vpn() {
       local state
       state=$(echo "$status_line" | sed -n 's/^[^(]*(\([^)]*\)).*/\1/p')
       echo "VPN '$svc': $state"
+      echo "Connect automatically: $(_vpn_auto_get "$svc")"
+      [ -f "$(_vpn_marker "$svc")" ] && echo "  (paused by 'vpn down'; 'vpn up' will restore it)"
+      ;;
+    auto)
+      case "$2" in
+        on|off)
+          local want=false
+          [[ $2 == on ]] && want=true
+          if _vpn_auto_set "$svc" "$want"; then
+            rm -f "$(_vpn_marker "$svc")"
+            echo "Connect automatically: $want"
+          else
+            echo "Failed to set 'Connect automatically' for '$svc'."
+            return 1
+          fi
+          ;;
+        "")
+          echo "Connect automatically: $(_vpn_auto_get "$svc")"
+          ;;
+        *)
+          echo "Usage: vpn auto [on|off]"
+          return 1
+          ;;
+      esac
       ;;
     reauth)
+      _vpn_auto_suspend "$svc"
      # Stop any active/pending connection
       if [[ $status_line != *"(Disconnected)"* && $status_line != *"(Invalid)"* ]]; then
         echo "Disconnecting VPN..."
@@ -377,6 +474,7 @@ vpn() {
       _vpn_wait 60 "$svc" "$log_offset" "Re-authentication failed."
       local rc=$?
       if [ $rc -eq 0 ]; then
+        _vpn_auto_restore "$svc"
         osascript -e 'tell application "Azure VPN Client" to quit'
         return 0
       fi
@@ -388,7 +486,7 @@ vpn() {
       return $rc
       ;;
     *)
-      echo "Usage: vpn {up|down|ls|reauth}"
+      echo "Usage: vpn {up|down|ls|auto [on|off]|reauth}"
       return 1
       ;;
   esac
