@@ -8,7 +8,7 @@ paths:
 
 # .NET service architecture
 
-Working summary of the Confluence pages "Class/Component Taxonomy" (FSE space, page 475562185, v32) and its subpages "Errors and Results" (page 2011037718, v1) and "Events and Messaging" (page 2011627529, v1). The pages are the source of truth: when this file and a page disagree, follow the page and point out the drift.
+Working summary of the Confluence pages "Class/Component Taxonomy" (FSE space, page 475562185, v33) and its subpages "Errors and Results" (page 2011037718, v1) and "Events and Messaging" (page 2011627529, v1). The pages are the source of truth: when this file and a page disagree, follow the page and point out the drift.
 
 ## Start small
 
