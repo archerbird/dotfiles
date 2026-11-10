@@ -30,7 +30,9 @@ Reach well-understood behavior before any class is named.
 - **Edge cases:** boundaries, empty and missing data, duplicates and retries, concurrent changes, partial failure, time (period boundaries, time zones, effective dates). Hunt for them; every one gets an agreed outcome.
 - **Consequences:** what must happen because of each write, and what other use cases or services react.
 
-Done when every use case has its outcomes and edge cases agreed, each stated as observable behavior.
+Record each use case as an example map: its rules, each rule's concrete examples (the given, the action, and the exact outcome), and its open questions.
+
+Done when every use case has its outcomes and edge cases agreed, each stated as observable behavior, and every rule has at least one concrete example.
 
 ### Phase 2: Decomposition
 
@@ -57,18 +59,19 @@ The test suite is the spec. Plan it so that an agent given only the tests could 
 - **Unit tests** for each component from Phase 2, with its dependencies mocked: its responsibilities, its edge cases, and how it uses its collaborators.
 - **Integration tests** for each use case, through the Handler (or the Invoker for protocol behavior) with real or in-memory storage: the returned value or error, the Resources' resulting state, and the messages emitted.
 - Name each test as a sentence of the spec, given / when / then.
+- Order and split the list by "Build it" in `~/.claude/skills/exact/test-list.md`: driving tests by slice, then verification tests.
 
-Done when every behavior and edge case from Phase 1 maps to at least one named test, and every component from Phase 2 has unit tests covering its interface from Phase 3.
+Done when every behavior and edge case from Phase 1 maps to at least one named test, every component from Phase 2 has unit tests covering its interface from Phase 3, and every test is marked driving or verification.
 
 ## 3. Summarise and confirm
 
 Present the kickoff summary:
 
-- **Behavior:** each use case with its outcomes and edge cases.
+- **Behavior:** each use case's example map: rules, examples with exact outcomes, and edge cases.
 - **Components:** a table of Invoker → Handler → components, with what earns each component.
 - **Shapes:** inputs, outputs, Resources, and interfaces.
-- **Tests:** the test list, grouped by use case, integration tests then unit tests per component.
+- **Tests:** the ordered test list: driving tests by slice, then verification tests with the driving tests each relies on.
 - **Build order:** the thinnest end-to-end slice through one use case first (its tests go red, then green), then the slices that grow it, each one independently mergeable.
 - **Open questions:** anything parked, with who can answer it.
 
-Ask the user to confirm the summary. Offer to post it to the Jira ticket. Start implementing only when the user says so.
+Ask the user to confirm the summary. Offer to post it to the Jira ticket. Start implementing only when the user says so, and suggest `/exact` to build it.
